@@ -11,10 +11,14 @@ The rough steps I follow including the Docker tutorial look like this:
 	- open ssh, http, https, DNS (UPD,TCP)
 5. Associate Elastic IP with Ubuntu Server
 6. Install Docker and Docker-compose on Ubuntu
-7. MUST manually change url references
+7. Clone the git to your user directory
+8. MUST manually change domain references to your domain
   -nginx.conf
-	-docker-compose.yml
-8. run sudo docker-compose up -d
-9. Test
+  -docker-compose.yml
+8. You must also run the following 2 commands in the project diroectory:
+  -sudo openssl dhparam -out /home/ubuntu/node_project/dhparam/dhparam-2048.pem 2048
+  -sudo python3 generate-securelink.py
+10. run sudo docker-compose up -d
+11. Test
 
 When the steps are completed uncomment the lines in the nginx.conf file in order to add the login page and the securelink.
